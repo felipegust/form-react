@@ -25,7 +25,15 @@ const Form = () => {
         }
 
         //submete o form caso não haja problemas
-        if(!alert && !emailMessage) {
+        if (!alert && !emailMessage) {
+            console.log(JSON.stringify(form));
+            fetch('http://localhost:3000/', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            })
             e.currentTarget.submit()
         }
     }
